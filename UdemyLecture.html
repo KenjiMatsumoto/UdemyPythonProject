@@ -13496,12 +13496,20 @@ Name: 1, dtype: float64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#22806;&#12428;&#20516;&#38500;&#21435;&#65288;&#65299;&#963;&#27861;&#65289;">&#22806;&#12428;&#20516;&#38500;&#21435;&#65288;&#65299;&#963;&#27861;&#65289;<a class="anchor-link" href="#&#22806;&#12428;&#20516;&#38500;&#21435;&#65288;&#65299;&#963;&#27861;&#65289;">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;x6&#39;</span>
 </pre></div>
 
 </div>
@@ -13511,10 +13519,12 @@ Name: 1, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 平均</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># mean</span>
 </pre></div>
 
 </div>
@@ -13527,7 +13537,729 @@ Name: 1, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[45]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>x1       3.613524
+x2      11.363636
+x3      11.136779
+x4       0.069170
+x5       0.554695
+x6       6.284634
+x7      68.574901
+x8       3.795043
+x9       9.549407
+x10    408.237154
+x11     18.455534
+x12    356.674032
+x13     12.653063
+y       22.532806
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[46]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6.284634387351788</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 標準偏差(standard deviation)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="c1"># sigma</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sigma</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[51]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.7026171434153234</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">low</span> <span class="o">=</span> <span class="n">mean</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">high</span> <span class="o">=</span> <span class="n">mean</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">low</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[60]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>506</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[61]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>498</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 分布の確認</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="c1"># オリジナル</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/kokubun/.pyenv/versions/3.6.2/envs/tensorflow/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
+/Users/kokubun/.pyenv/versions/3.6.2/envs/tensorflow/lib/python3.6/site-packages/matplotlib/axes/_axes.py:6462: UserWarning: The &#39;normed&#39; kwarg is deprecated, and has been replaced by the &#39;density&#39; kwarg.
+  warnings.warn(&#34;The &#39;normed&#39; kwarg is deprecated, and has been &#34;
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[62]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1105fda20&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/kokubun/.pyenv/versions/3.6.2/envs/tensorflow/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
+/Users/kokubun/.pyenv/versions/3.6.2/envs/tensorflow/lib/python3.6/site-packages/matplotlib/axes/_axes.py:6462: UserWarning: The &#39;normed&#39; kwarg is deprecated, and has been replaced by the &#39;density&#39; kwarg.
+  warnings.warn(&#34;The &#39;normed&#39; kwarg is deprecated, and has been &#34;
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[63]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1281dcc50&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#22806;&#12428;&#20516;&#38500;&#21435;&#12434;&#20840;&#21015;&#12395;&#36969;&#29992;">&#22806;&#12428;&#20516;&#38500;&#21435;&#12434;&#20840;&#21015;&#12395;&#36969;&#29992;<a class="anchor-link" href="#&#22806;&#12428;&#20516;&#38500;&#21435;&#12434;&#20840;&#21015;&#12395;&#36969;&#29992;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">cols</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[64]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;, &#39;x7&#39;, &#39;x8&#39;, &#39;x9&#39;, &#39;x10&#39;, &#39;x11&#39;,
+       &#39;x12&#39;, &#39;x13&#39;, &#39;y&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+    <span class="c1"># 3σ法の上下限値を設定</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">mean</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">mean</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="c1"># 条件で絞り込み</span>
+    <span class="n">_df</span> <span class="o">=</span> <span class="n">_df</span><span class="p">[(</span><span class="n">_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">low</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[80]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>506</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">_df</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[81]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>415</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#22806;&#12428;&#20516;&#12392;&#12473;&#12465;&#12540;&#12522;&#12531;&#12464;&#12434;&#32771;&#24942;&#12375;&#12383;&#23455;&#35013;">&#22806;&#12428;&#20516;&#12392;&#12473;&#12465;&#12540;&#12522;&#12531;&#12464;&#12434;&#32771;&#24942;&#12375;&#12383;&#23455;&#35013;<a class="anchor-link" href="#&#22806;&#12428;&#20516;&#12392;&#12473;&#12465;&#12540;&#12522;&#12531;&#12464;&#12434;&#32771;&#24942;&#12375;&#12383;&#23455;&#35013;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 学習</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[87]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 検証（訓練データ）</span>
+<span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[88]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.8050809843193256</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 検証（検証データ）</span>
+<span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[89]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6404318204459513</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#12473;&#12465;&#12540;&#12522;&#12531;&#12464;">&#12473;&#12465;&#12540;&#12522;&#12531;&#12464;<a class="anchor-link" href="#&#12473;&#12465;&#12540;&#12522;&#12531;&#12464;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># scalerの宣言</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># scalerの学習　平均と標準偏差を計算</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[92]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>StandardScaler(copy=True, with_mean=True, with_std=True)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># scaling</span>
+<span class="n">x_train2</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_test2</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[94]:</div>
 
 
 
@@ -13567,132 +14299,100 @@ Name: 1, dtype: float64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0.00632</td>
-      <td>18.0</td>
-      <td>2.31</td>
+      <th>442</th>
+      <td>5.66637</td>
+      <td>0.0</td>
+      <td>18.10</td>
       <td>0</td>
-      <td>0.538</td>
-      <td>6.575</td>
-      <td>65.2</td>
-      <td>4.0900</td>
-      <td>1</td>
-      <td>296</td>
-      <td>15.3</td>
-      <td>396.90</td>
-      <td>4.98</td>
+      <td>0.7400</td>
+      <td>6.219</td>
+      <td>100.0</td>
+      <td>2.0048</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>395.69</td>
+      <td>16.59</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0.02731</td>
+      <th>181</th>
+      <td>0.06888</td>
       <td>0.0</td>
-      <td>7.07</td>
+      <td>2.46</td>
       <td>0</td>
-      <td>0.469</td>
-      <td>6.421</td>
-      <td>78.9</td>
-      <td>4.9671</td>
-      <td>2</td>
-      <td>242</td>
+      <td>0.4880</td>
+      <td>6.144</td>
+      <td>62.2</td>
+      <td>2.5979</td>
+      <td>3</td>
+      <td>193</td>
       <td>17.8</td>
       <td>396.90</td>
-      <td>9.14</td>
+      <td>9.45</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>0.02729</td>
-      <td>0.0</td>
-      <td>7.07</td>
+      <th>82</th>
+      <td>0.03659</td>
+      <td>25.0</td>
+      <td>4.86</td>
       <td>0</td>
-      <td>0.469</td>
-      <td>7.185</td>
-      <td>61.1</td>
-      <td>4.9671</td>
-      <td>2</td>
-      <td>242</td>
-      <td>17.8</td>
-      <td>392.83</td>
-      <td>4.03</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.03237</td>
-      <td>0.0</td>
-      <td>2.18</td>
-      <td>0</td>
-      <td>0.458</td>
-      <td>6.998</td>
-      <td>45.8</td>
-      <td>6.0622</td>
-      <td>3</td>
-      <td>222</td>
-      <td>18.7</td>
-      <td>394.63</td>
-      <td>2.94</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.06905</td>
-      <td>0.0</td>
-      <td>2.18</td>
-      <td>0</td>
-      <td>0.458</td>
-      <td>7.147</td>
-      <td>54.2</td>
-      <td>6.0622</td>
-      <td>3</td>
-      <td>222</td>
-      <td>18.7</td>
+      <td>0.4260</td>
+      <td>6.302</td>
+      <td>32.2</td>
+      <td>5.4007</td>
+      <td>4</td>
+      <td>281</td>
+      <td>19.0</td>
       <td>396.90</td>
-      <td>5.33</td>
+      <td>6.72</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>0.02985</td>
+      <th>483</th>
+      <td>2.81838</td>
       <td>0.0</td>
-      <td>2.18</td>
+      <td>18.10</td>
       <td>0</td>
-      <td>0.458</td>
-      <td>6.430</td>
-      <td>58.7</td>
-      <td>6.0622</td>
+      <td>0.5320</td>
+      <td>5.762</td>
+      <td>40.3</td>
+      <td>4.0983</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>392.92</td>
+      <td>10.42</td>
+    </tr>
+    <tr>
+      <th>485</th>
+      <td>3.67367</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.5830</td>
+      <td>6.312</td>
+      <td>51.9</td>
+      <td>3.9917</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>388.62</td>
+      <td>10.58</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>0.07151</td>
+      <td>0.0</td>
+      <td>4.49</td>
+      <td>0</td>
+      <td>0.4490</td>
+      <td>6.121</td>
+      <td>56.8</td>
+      <td>3.7476</td>
       <td>3</td>
-      <td>222</td>
-      <td>18.7</td>
-      <td>394.12</td>
-      <td>5.21</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.08829</td>
-      <td>12.5</td>
-      <td>7.87</td>
-      <td>0</td>
-      <td>0.524</td>
-      <td>6.012</td>
-      <td>66.6</td>
-      <td>5.5605</td>
-      <td>5</td>
-      <td>311</td>
-      <td>15.2</td>
-      <td>395.60</td>
-      <td>12.43</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.14455</td>
-      <td>12.5</td>
-      <td>7.87</td>
-      <td>0</td>
-      <td>0.524</td>
-      <td>6.172</td>
-      <td>96.1</td>
-      <td>5.9505</td>
-      <td>5</td>
-      <td>311</td>
-      <td>15.2</td>
-      <td>396.90</td>
-      <td>19.15</td>
+      <td>247</td>
+      <td>18.5</td>
+      <td>395.15</td>
+      <td>8.44</td>
     </tr>
     <tr>
       <th>8</th>
@@ -13700,7 +14400,7 @@ Name: 1, dtype: float64</pre>
       <td>12.5</td>
       <td>7.87</td>
       <td>0</td>
-      <td>0.524</td>
+      <td>0.5240</td>
       <td>5.631</td>
       <td>100.0</td>
       <td>6.0821</td>
@@ -13711,308 +14411,84 @@ Name: 1, dtype: float64</pre>
       <td>29.93</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>0.17004</td>
-      <td>12.5</td>
-      <td>7.87</td>
+      <th>259</th>
+      <td>0.65665</td>
+      <td>20.0</td>
+      <td>3.97</td>
       <td>0</td>
-      <td>0.524</td>
-      <td>6.004</td>
-      <td>85.9</td>
-      <td>6.5921</td>
-      <td>5</td>
-      <td>311</td>
-      <td>15.2</td>
-      <td>386.71</td>
-      <td>17.10</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>0.22489</td>
-      <td>12.5</td>
-      <td>7.87</td>
-      <td>0</td>
-      <td>0.524</td>
-      <td>6.377</td>
-      <td>94.3</td>
-      <td>6.3467</td>
-      <td>5</td>
-      <td>311</td>
-      <td>15.2</td>
-      <td>392.52</td>
-      <td>20.45</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>0.11747</td>
-      <td>12.5</td>
-      <td>7.87</td>
-      <td>0</td>
-      <td>0.524</td>
-      <td>6.009</td>
-      <td>82.9</td>
-      <td>6.2267</td>
-      <td>5</td>
-      <td>311</td>
-      <td>15.2</td>
-      <td>396.90</td>
-      <td>13.27</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>0.09378</td>
-      <td>12.5</td>
-      <td>7.87</td>
-      <td>0</td>
-      <td>0.524</td>
-      <td>5.889</td>
-      <td>39.0</td>
-      <td>5.4509</td>
-      <td>5</td>
-      <td>311</td>
-      <td>15.2</td>
-      <td>390.50</td>
-      <td>15.71</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>0.62976</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.949</td>
-      <td>61.8</td>
-      <td>4.7075</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>8.26</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>0.63796</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>6.096</td>
-      <td>84.5</td>
-      <td>4.4619</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>380.02</td>
-      <td>10.26</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>0.62739</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.834</td>
-      <td>56.5</td>
-      <td>4.4986</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>395.62</td>
-      <td>8.47</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>1.05393</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.935</td>
-      <td>29.3</td>
-      <td>4.4986</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>386.85</td>
-      <td>6.58</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>0.78420</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.990</td>
-      <td>81.7</td>
-      <td>4.2579</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>386.75</td>
-      <td>14.67</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>0.80271</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.456</td>
-      <td>36.6</td>
-      <td>3.7965</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>288.99</td>
-      <td>11.69</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>0.72580</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.727</td>
-      <td>69.5</td>
-      <td>3.7965</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>390.95</td>
-      <td>11.28</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>1.25179</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.570</td>
-      <td>98.1</td>
-      <td>3.7979</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>376.57</td>
-      <td>21.02</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>0.85204</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.965</td>
-      <td>89.2</td>
-      <td>4.0123</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>392.53</td>
-      <td>13.83</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>1.23247</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>6.142</td>
-      <td>91.7</td>
-      <td>3.9769</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>18.72</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>0.98843</td>
-      <td>0.0</td>
-      <td>8.14</td>
-      <td>0</td>
-      <td>0.538</td>
-      <td>5.813</td>
+      <td>0.6470</td>
+      <td>6.842</td>
       <td>100.0</td>
-      <td>4.0952</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>394.54</td>
-      <td>19.88</td>
+      <td>2.0107</td>
+      <td>5</td>
+      <td>264</td>
+      <td>13.0</td>
+      <td>391.93</td>
+      <td>6.90</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>0.75026</td>
+      <th>103</th>
+      <td>0.21161</td>
       <td>0.0</td>
-      <td>8.14</td>
+      <td>8.56</td>
       <td>0</td>
-      <td>0.538</td>
-      <td>5.924</td>
-      <td>94.1</td>
-      <td>4.3996</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>394.33</td>
-      <td>16.30</td>
+      <td>0.5200</td>
+      <td>6.137</td>
+      <td>87.4</td>
+      <td>2.7147</td>
+      <td>5</td>
+      <td>384</td>
+      <td>20.9</td>
+      <td>394.47</td>
+      <td>13.44</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>0.84054</td>
+      <th>446</th>
+      <td>6.28807</td>
       <td>0.0</td>
-      <td>8.14</td>
+      <td>18.10</td>
       <td>0</td>
-      <td>0.538</td>
-      <td>5.599</td>
-      <td>85.7</td>
-      <td>4.4546</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>303.42</td>
-      <td>16.51</td>
+      <td>0.7400</td>
+      <td>6.341</td>
+      <td>96.4</td>
+      <td>2.0720</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>318.01</td>
+      <td>17.79</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>0.67191</td>
+      <th>408</th>
+      <td>7.40389</td>
       <td>0.0</td>
-      <td>8.14</td>
+      <td>18.10</td>
       <td>0</td>
-      <td>0.538</td>
-      <td>5.813</td>
-      <td>90.3</td>
-      <td>4.6820</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>376.88</td>
-      <td>14.81</td>
+      <td>0.5970</td>
+      <td>5.617</td>
+      <td>97.9</td>
+      <td>1.4547</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>314.64</td>
+      <td>26.40</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>0.95577</td>
+      <th>395</th>
+      <td>8.71675</td>
       <td>0.0</td>
-      <td>8.14</td>
+      <td>18.10</td>
       <td>0</td>
-      <td>0.538</td>
-      <td>6.047</td>
-      <td>88.8</td>
-      <td>4.4534</td>
-      <td>4</td>
-      <td>307</td>
-      <td>21.0</td>
-      <td>306.38</td>
-      <td>17.28</td>
+      <td>0.6930</td>
+      <td>6.471</td>
+      <td>98.8</td>
+      <td>1.7257</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>391.98</td>
+      <td>17.12</td>
     </tr>
     <tr>
       <th>28</th>
@@ -14020,7 +14496,7 @@ Name: 1, dtype: float64</pre>
       <td>0.0</td>
       <td>8.14</td>
       <td>0</td>
-      <td>0.538</td>
+      <td>0.5380</td>
       <td>6.495</td>
       <td>94.4</td>
       <td>4.4547</td>
@@ -14031,20 +14507,276 @@ Name: 1, dtype: float64</pre>
       <td>12.80</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>1.00245</td>
+      <th>31</th>
+      <td>1.35472</td>
       <td>0.0</td>
       <td>8.14</td>
       <td>0</td>
-      <td>0.538</td>
-      <td>6.674</td>
-      <td>87.3</td>
-      <td>4.2390</td>
+      <td>0.5380</td>
+      <td>6.072</td>
+      <td>100.0</td>
+      <td>4.1750</td>
       <td>4</td>
       <td>307</td>
       <td>21.0</td>
-      <td>380.23</td>
-      <td>11.98</td>
+      <td>376.73</td>
+      <td>13.04</td>
+    </tr>
+    <tr>
+      <th>350</th>
+      <td>0.06211</td>
+      <td>40.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>0.4290</td>
+      <td>6.490</td>
+      <td>44.4</td>
+      <td>8.7921</td>
+      <td>1</td>
+      <td>335</td>
+      <td>19.7</td>
+      <td>396.90</td>
+      <td>5.98</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>0.15445</td>
+      <td>25.0</td>
+      <td>5.13</td>
+      <td>0</td>
+      <td>0.4530</td>
+      <td>6.145</td>
+      <td>29.2</td>
+      <td>7.8148</td>
+      <td>8</td>
+      <td>284</td>
+      <td>19.7</td>
+      <td>390.68</td>
+      <td>6.86</td>
+    </tr>
+    <tr>
+      <th>289</th>
+      <td>0.04297</td>
+      <td>52.5</td>
+      <td>5.32</td>
+      <td>0</td>
+      <td>0.4050</td>
+      <td>6.565</td>
+      <td>22.9</td>
+      <td>7.3172</td>
+      <td>6</td>
+      <td>293</td>
+      <td>16.6</td>
+      <td>371.72</td>
+      <td>9.51</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1.38799</td>
+      <td>0.0</td>
+      <td>8.14</td>
+      <td>0</td>
+      <td>0.5380</td>
+      <td>5.950</td>
+      <td>82.0</td>
+      <td>3.9900</td>
+      <td>4</td>
+      <td>307</td>
+      <td>21.0</td>
+      <td>232.60</td>
+      <td>27.71</td>
+    </tr>
+    <tr>
+      <th>328</th>
+      <td>0.06617</td>
+      <td>0.0</td>
+      <td>3.24</td>
+      <td>0</td>
+      <td>0.4600</td>
+      <td>5.868</td>
+      <td>25.8</td>
+      <td>5.2146</td>
+      <td>4</td>
+      <td>430</td>
+      <td>16.9</td>
+      <td>382.44</td>
+      <td>9.97</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>0.25387</td>
+      <td>0.0</td>
+      <td>6.91</td>
+      <td>0</td>
+      <td>0.4480</td>
+      <td>5.399</td>
+      <td>95.3</td>
+      <td>5.8700</td>
+      <td>3</td>
+      <td>233</td>
+      <td>17.9</td>
+      <td>396.90</td>
+      <td>30.81</td>
+    </tr>
+    <tr>
+      <th>413</th>
+      <td>28.65580</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.5970</td>
+      <td>5.155</td>
+      <td>100.0</td>
+      <td>1.5894</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>210.97</td>
+      <td>20.08</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>2.63548</td>
+      <td>0.0</td>
+      <td>9.90</td>
+      <td>0</td>
+      <td>0.5440</td>
+      <td>4.973</td>
+      <td>37.8</td>
+      <td>2.5194</td>
+      <td>4</td>
+      <td>304</td>
+      <td>18.4</td>
+      <td>350.45</td>
+      <td>12.64</td>
+    </tr>
+    <tr>
+      <th>336</th>
+      <td>0.03427</td>
+      <td>0.0</td>
+      <td>5.19</td>
+      <td>0</td>
+      <td>0.5150</td>
+      <td>5.869</td>
+      <td>46.3</td>
+      <td>5.2311</td>
+      <td>5</td>
+      <td>224</td>
+      <td>20.2</td>
+      <td>396.90</td>
+      <td>9.80</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>1.15172</td>
+      <td>0.0</td>
+      <td>8.14</td>
+      <td>0</td>
+      <td>0.5380</td>
+      <td>5.701</td>
+      <td>95.0</td>
+      <td>3.7872</td>
+      <td>4</td>
+      <td>307</td>
+      <td>21.0</td>
+      <td>358.77</td>
+      <td>18.35</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>0.36894</td>
+      <td>22.0</td>
+      <td>5.86</td>
+      <td>0</td>
+      <td>0.4310</td>
+      <td>8.259</td>
+      <td>8.4</td>
+      <td>8.9067</td>
+      <td>7</td>
+      <td>330</td>
+      <td>19.1</td>
+      <td>396.90</td>
+      <td>3.54</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>0.16760</td>
+      <td>0.0</td>
+      <td>7.38</td>
+      <td>0</td>
+      <td>0.4930</td>
+      <td>6.426</td>
+      <td>52.3</td>
+      <td>4.5404</td>
+      <td>5</td>
+      <td>287</td>
+      <td>19.6</td>
+      <td>396.90</td>
+      <td>7.20</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>0.06417</td>
+      <td>0.0</td>
+      <td>5.96</td>
+      <td>0</td>
+      <td>0.4990</td>
+      <td>5.933</td>
+      <td>68.2</td>
+      <td>3.3603</td>
+      <td>5</td>
+      <td>279</td>
+      <td>19.2</td>
+      <td>396.90</td>
+      <td>9.68</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>15.28800</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.6710</td>
+      <td>6.649</td>
+      <td>93.3</td>
+      <td>1.3449</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>363.02</td>
+      <td>23.24</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>0.04379</td>
+      <td>80.0</td>
+      <td>3.37</td>
+      <td>0</td>
+      <td>0.3980</td>
+      <td>5.787</td>
+      <td>31.1</td>
+      <td>6.6115</td>
+      <td>4</td>
+      <td>337</td>
+      <td>16.1</td>
+      <td>396.90</td>
+      <td>10.24</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>2.44953</td>
+      <td>0.0</td>
+      <td>19.58</td>
+      <td>0</td>
+      <td>0.6050</td>
+      <td>6.402</td>
+      <td>95.2</td>
+      <td>2.2625</td>
+      <td>5</td>
+      <td>403</td>
+      <td>14.7</td>
+      <td>330.04</td>
+      <td>11.32</td>
     </tr>
     <tr>
       <th>...</th>
@@ -14063,164 +14795,164 @@ Name: 1, dtype: float64</pre>
       <td>...</td>
     </tr>
     <tr>
-      <th>476</th>
-      <td>4.87141</td>
-      <td>0.0</td>
-      <td>18.10</td>
+      <th>7</th>
+      <td>0.14455</td>
+      <td>12.5</td>
+      <td>7.87</td>
       <td>0</td>
-      <td>0.614</td>
-      <td>6.484</td>
-      <td>93.6</td>
-      <td>2.3053</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>396.21</td>
-      <td>18.68</td>
-    </tr>
-    <tr>
-      <th>477</th>
-      <td>15.02340</td>
-      <td>0.0</td>
-      <td>18.10</td>
-      <td>0</td>
-      <td>0.614</td>
-      <td>5.304</td>
-      <td>97.3</td>
-      <td>2.1007</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>349.48</td>
-      <td>24.91</td>
-    </tr>
-    <tr>
-      <th>478</th>
-      <td>10.23300</td>
-      <td>0.0</td>
-      <td>18.10</td>
-      <td>0</td>
-      <td>0.614</td>
-      <td>6.185</td>
-      <td>96.7</td>
-      <td>2.1705</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>379.70</td>
-      <td>18.03</td>
-    </tr>
-    <tr>
-      <th>479</th>
-      <td>14.33370</td>
-      <td>0.0</td>
-      <td>18.10</td>
-      <td>0</td>
-      <td>0.614</td>
-      <td>6.229</td>
-      <td>88.0</td>
-      <td>1.9512</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>383.32</td>
-      <td>13.11</td>
-    </tr>
-    <tr>
-      <th>480</th>
-      <td>5.82401</td>
-      <td>0.0</td>
-      <td>18.10</td>
-      <td>0</td>
-      <td>0.532</td>
-      <td>6.242</td>
-      <td>64.7</td>
-      <td>3.4242</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
+      <td>0.5240</td>
+      <td>6.172</td>
+      <td>96.1</td>
+      <td>5.9505</td>
+      <td>5</td>
+      <td>311</td>
+      <td>15.2</td>
       <td>396.90</td>
-      <td>10.74</td>
+      <td>19.15</td>
     </tr>
     <tr>
-      <th>481</th>
-      <td>5.70818</td>
+      <th>147</th>
+      <td>2.36862</td>
+      <td>0.0</td>
+      <td>19.58</td>
+      <td>0</td>
+      <td>0.8710</td>
+      <td>4.926</td>
+      <td>95.7</td>
+      <td>1.4608</td>
+      <td>5</td>
+      <td>403</td>
+      <td>14.7</td>
+      <td>391.71</td>
+      <td>29.53</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>0.05302</td>
+      <td>0.0</td>
+      <td>3.41</td>
+      <td>0</td>
+      <td>0.4890</td>
+      <td>7.079</td>
+      <td>63.1</td>
+      <td>3.4145</td>
+      <td>2</td>
+      <td>270</td>
+      <td>17.8</td>
+      <td>396.06</td>
+      <td>5.70</td>
+    </tr>
+    <tr>
+      <th>433</th>
+      <td>5.58107</td>
       <td>0.0</td>
       <td>18.10</td>
       <td>0</td>
-      <td>0.532</td>
-      <td>6.750</td>
-      <td>74.9</td>
-      <td>3.3317</td>
+      <td>0.7130</td>
+      <td>6.436</td>
+      <td>87.9</td>
+      <td>2.3158</td>
       <td>24</td>
       <td>666</td>
       <td>20.2</td>
-      <td>393.07</td>
-      <td>7.74</td>
+      <td>100.19</td>
+      <td>16.22</td>
     </tr>
     <tr>
-      <th>482</th>
-      <td>5.73116</td>
-      <td>0.0</td>
-      <td>18.10</td>
+      <th>281</th>
+      <td>0.03705</td>
+      <td>20.0</td>
+      <td>3.33</td>
       <td>0</td>
-      <td>0.532</td>
-      <td>7.061</td>
-      <td>77.0</td>
-      <td>3.4106</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>395.28</td>
-      <td>7.01</td>
+      <td>0.4429</td>
+      <td>6.968</td>
+      <td>37.2</td>
+      <td>5.2447</td>
+      <td>5</td>
+      <td>216</td>
+      <td>14.9</td>
+      <td>392.23</td>
+      <td>4.59</td>
     </tr>
     <tr>
-      <th>483</th>
-      <td>2.81838</td>
-      <td>0.0</td>
-      <td>18.10</td>
+      <th>247</th>
+      <td>0.19657</td>
+      <td>22.0</td>
+      <td>5.86</td>
       <td>0</td>
-      <td>0.532</td>
-      <td>5.762</td>
-      <td>40.3</td>
-      <td>4.0983</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>392.92</td>
-      <td>10.42</td>
+      <td>0.4310</td>
+      <td>6.226</td>
+      <td>79.2</td>
+      <td>8.0555</td>
+      <td>7</td>
+      <td>330</td>
+      <td>19.1</td>
+      <td>376.14</td>
+      <td>10.15</td>
     </tr>
     <tr>
-      <th>484</th>
-      <td>2.37857</td>
+      <th>71</th>
+      <td>0.15876</td>
       <td>0.0</td>
-      <td>18.10</td>
+      <td>10.81</td>
       <td>0</td>
-      <td>0.583</td>
-      <td>5.871</td>
-      <td>41.9</td>
-      <td>3.7240</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>370.73</td>
-      <td>13.34</td>
+      <td>0.4130</td>
+      <td>5.961</td>
+      <td>17.5</td>
+      <td>5.2873</td>
+      <td>4</td>
+      <td>305</td>
+      <td>19.2</td>
+      <td>376.94</td>
+      <td>9.88</td>
     </tr>
     <tr>
-      <th>485</th>
-      <td>3.67367</td>
-      <td>0.0</td>
-      <td>18.10</td>
+      <th>50</th>
+      <td>0.08873</td>
+      <td>21.0</td>
+      <td>5.64</td>
       <td>0</td>
-      <td>0.583</td>
-      <td>6.312</td>
-      <td>51.9</td>
-      <td>3.9917</td>
-      <td>24</td>
-      <td>666</td>
-      <td>20.2</td>
-      <td>388.62</td>
-      <td>10.58</td>
+      <td>0.4390</td>
+      <td>5.963</td>
+      <td>45.7</td>
+      <td>6.8147</td>
+      <td>4</td>
+      <td>243</td>
+      <td>16.8</td>
+      <td>395.56</td>
+      <td>13.45</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>2.30040</td>
+      <td>0.0</td>
+      <td>19.58</td>
+      <td>0</td>
+      <td>0.6050</td>
+      <td>6.319</td>
+      <td>96.1</td>
+      <td>2.1000</td>
+      <td>5</td>
+      <td>403</td>
+      <td>14.7</td>
+      <td>297.09</td>
+      <td>11.10</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>0.12932</td>
+      <td>0.0</td>
+      <td>13.92</td>
+      <td>0</td>
+      <td>0.4370</td>
+      <td>6.678</td>
+      <td>31.1</td>
+      <td>5.9604</td>
+      <td>4</td>
+      <td>289</td>
+      <td>16.0</td>
+      <td>396.90</td>
+      <td>6.27</td>
     </tr>
     <tr>
       <th>486</th>
@@ -14228,7 +14960,7 @@ Name: 1, dtype: float64</pre>
       <td>0.0</td>
       <td>18.10</td>
       <td>0</td>
-      <td>0.583</td>
+      <td>0.5830</td>
       <td>6.114</td>
       <td>79.8</td>
       <td>3.5459</td>
@@ -14239,12 +14971,268 @@ Name: 1, dtype: float64</pre>
       <td>14.98</td>
     </tr>
     <tr>
+      <th>441</th>
+      <td>9.72418</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.7400</td>
+      <td>6.406</td>
+      <td>97.2</td>
+      <td>2.0651</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>385.96</td>
+      <td>19.52</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>0.14103</td>
+      <td>0.0</td>
+      <td>13.92</td>
+      <td>0</td>
+      <td>0.4370</td>
+      <td>5.790</td>
+      <td>58.0</td>
+      <td>6.3200</td>
+      <td>4</td>
+      <td>289</td>
+      <td>16.0</td>
+      <td>396.90</td>
+      <td>15.84</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>0.47547</td>
+      <td>0.0</td>
+      <td>9.90</td>
+      <td>0</td>
+      <td>0.5440</td>
+      <td>6.113</td>
+      <td>58.8</td>
+      <td>4.0019</td>
+      <td>4</td>
+      <td>304</td>
+      <td>18.4</td>
+      <td>396.23</td>
+      <td>12.73</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>0.09068</td>
+      <td>45.0</td>
+      <td>3.44</td>
+      <td>0</td>
+      <td>0.4370</td>
+      <td>6.951</td>
+      <td>21.5</td>
+      <td>6.4798</td>
+      <td>5</td>
+      <td>398</td>
+      <td>15.2</td>
+      <td>377.68</td>
+      <td>5.10</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>0.34109</td>
+      <td>0.0</td>
+      <td>7.38</td>
+      <td>0</td>
+      <td>0.4930</td>
+      <td>6.415</td>
+      <td>40.1</td>
+      <td>4.7211</td>
+      <td>5</td>
+      <td>287</td>
+      <td>19.6</td>
+      <td>396.90</td>
+      <td>6.12</td>
+    </tr>
+    <tr>
+      <th>481</th>
+      <td>5.70818</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.5320</td>
+      <td>6.750</td>
+      <td>74.9</td>
+      <td>3.3317</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>393.07</td>
+      <td>7.74</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>0.09604</td>
+      <td>40.0</td>
+      <td>6.41</td>
+      <td>0</td>
+      <td>0.4470</td>
+      <td>6.854</td>
+      <td>42.8</td>
+      <td>4.2673</td>
+      <td>4</td>
+      <td>254</td>
+      <td>17.6</td>
+      <td>396.90</td>
+      <td>2.98</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>0.07896</td>
+      <td>0.0</td>
+      <td>12.83</td>
+      <td>0</td>
+      <td>0.4370</td>
+      <td>6.273</td>
+      <td>6.0</td>
+      <td>4.2515</td>
+      <td>5</td>
+      <td>398</td>
+      <td>18.7</td>
+      <td>394.92</td>
+      <td>6.78</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>0.32982</td>
+      <td>0.0</td>
+      <td>21.89</td>
+      <td>0</td>
+      <td>0.6240</td>
+      <td>5.822</td>
+      <td>95.4</td>
+      <td>2.4699</td>
+      <td>4</td>
+      <td>437</td>
+      <td>21.2</td>
+      <td>388.69</td>
+      <td>15.03</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>1.65660</td>
+      <td>0.0</td>
+      <td>19.58</td>
+      <td>0</td>
+      <td>0.8710</td>
+      <td>6.122</td>
+      <td>97.3</td>
+      <td>1.6180</td>
+      <td>5</td>
+      <td>403</td>
+      <td>14.7</td>
+      <td>372.80</td>
+      <td>14.10</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>7.67202</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.6930</td>
+      <td>5.747</td>
+      <td>98.9</td>
+      <td>1.6334</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>393.10</td>
+      <td>19.92</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>0.35233</td>
+      <td>0.0</td>
+      <td>21.89</td>
+      <td>0</td>
+      <td>0.6240</td>
+      <td>6.454</td>
+      <td>98.4</td>
+      <td>1.8498</td>
+      <td>4</td>
+      <td>437</td>
+      <td>21.2</td>
+      <td>394.08</td>
+      <td>14.59</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>0.33147</td>
+      <td>0.0</td>
+      <td>6.20</td>
+      <td>0</td>
+      <td>0.5070</td>
+      <td>8.247</td>
+      <td>70.4</td>
+      <td>3.6519</td>
+      <td>8</td>
+      <td>307</td>
+      <td>17.4</td>
+      <td>378.95</td>
+      <td>3.95</td>
+    </tr>
+    <tr>
+      <th>484</th>
+      <td>2.37857</td>
+      <td>0.0</td>
+      <td>18.10</td>
+      <td>0</td>
+      <td>0.5830</td>
+      <td>5.871</td>
+      <td>41.9</td>
+      <td>3.7240</td>
+      <td>24</td>
+      <td>666</td>
+      <td>20.2</td>
+      <td>370.73</td>
+      <td>13.34</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>0.06466</td>
+      <td>70.0</td>
+      <td>2.24</td>
+      <td>0</td>
+      <td>0.4000</td>
+      <td>6.345</td>
+      <td>20.1</td>
+      <td>7.8278</td>
+      <td>5</td>
+      <td>358</td>
+      <td>14.8</td>
+      <td>368.24</td>
+      <td>4.97</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>0.09512</td>
+      <td>0.0</td>
+      <td>12.83</td>
+      <td>0</td>
+      <td>0.4370</td>
+      <td>6.286</td>
+      <td>45.0</td>
+      <td>4.5026</td>
+      <td>5</td>
+      <td>398</td>
+      <td>18.7</td>
+      <td>383.23</td>
+      <td>8.94</td>
+    </tr>
+    <tr>
       <th>487</th>
       <td>4.83567</td>
       <td>0.0</td>
       <td>18.10</td>
       <td>0</td>
-      <td>0.583</td>
+      <td>0.5830</td>
       <td>5.905</td>
       <td>53.2</td>
       <td>3.1523</td>
@@ -14255,297 +15243,154 @@ Name: 1, dtype: float64</pre>
       <td>11.45</td>
     </tr>
     <tr>
-      <th>488</th>
-      <td>0.15086</td>
-      <td>0.0</td>
-      <td>27.74</td>
+      <th>271</th>
+      <td>0.16211</td>
+      <td>20.0</td>
+      <td>6.96</td>
       <td>0</td>
-      <td>0.609</td>
-      <td>5.454</td>
-      <td>92.7</td>
-      <td>1.8209</td>
-      <td>4</td>
-      <td>711</td>
-      <td>20.1</td>
-      <td>395.09</td>
-      <td>18.06</td>
-    </tr>
-    <tr>
-      <th>489</th>
-      <td>0.18337</td>
-      <td>0.0</td>
-      <td>27.74</td>
-      <td>0</td>
-      <td>0.609</td>
-      <td>5.414</td>
-      <td>98.3</td>
-      <td>1.7554</td>
-      <td>4</td>
-      <td>711</td>
-      <td>20.1</td>
-      <td>344.05</td>
-      <td>23.97</td>
-    </tr>
-    <tr>
-      <th>490</th>
-      <td>0.20746</td>
-      <td>0.0</td>
-      <td>27.74</td>
-      <td>0</td>
-      <td>0.609</td>
-      <td>5.093</td>
-      <td>98.0</td>
-      <td>1.8226</td>
-      <td>4</td>
-      <td>711</td>
-      <td>20.1</td>
-      <td>318.43</td>
-      <td>29.68</td>
-    </tr>
-    <tr>
-      <th>491</th>
-      <td>0.10574</td>
-      <td>0.0</td>
-      <td>27.74</td>
-      <td>0</td>
-      <td>0.609</td>
-      <td>5.983</td>
-      <td>98.8</td>
-      <td>1.8681</td>
-      <td>4</td>
-      <td>711</td>
-      <td>20.1</td>
-      <td>390.11</td>
-      <td>18.07</td>
-    </tr>
-    <tr>
-      <th>492</th>
-      <td>0.11132</td>
-      <td>0.0</td>
-      <td>27.74</td>
-      <td>0</td>
-      <td>0.609</td>
-      <td>5.983</td>
-      <td>83.5</td>
-      <td>2.1099</td>
-      <td>4</td>
-      <td>711</td>
-      <td>20.1</td>
+      <td>0.4640</td>
+      <td>6.240</td>
+      <td>16.3</td>
+      <td>4.4290</td>
+      <td>3</td>
+      <td>223</td>
+      <td>18.6</td>
       <td>396.90</td>
-      <td>13.35</td>
+      <td>6.59</td>
     </tr>
     <tr>
-      <th>493</th>
-      <td>0.17331</td>
+      <th>37</th>
+      <td>0.08014</td>
       <td>0.0</td>
-      <td>9.69</td>
+      <td>5.96</td>
       <td>0</td>
-      <td>0.585</td>
-      <td>5.707</td>
-      <td>54.0</td>
-      <td>2.3817</td>
-      <td>6</td>
-      <td>391</td>
+      <td>0.4990</td>
+      <td>5.850</td>
+      <td>41.5</td>
+      <td>3.9342</td>
+      <td>5</td>
+      <td>279</td>
       <td>19.2</td>
       <td>396.90</td>
-      <td>12.01</td>
-    </tr>
-    <tr>
-      <th>494</th>
-      <td>0.27957</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>5.926</td>
-      <td>42.6</td>
-      <td>2.3817</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>396.90</td>
-      <td>13.59</td>
-    </tr>
-    <tr>
-      <th>495</th>
-      <td>0.17899</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>5.670</td>
-      <td>28.8</td>
-      <td>2.7986</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>393.29</td>
-      <td>17.60</td>
-    </tr>
-    <tr>
-      <th>496</th>
-      <td>0.28960</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>5.390</td>
-      <td>72.9</td>
-      <td>2.7986</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>396.90</td>
-      <td>21.14</td>
-    </tr>
-    <tr>
-      <th>497</th>
-      <td>0.26838</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>5.794</td>
-      <td>70.6</td>
-      <td>2.8927</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>396.90</td>
-      <td>14.10</td>
-    </tr>
-    <tr>
-      <th>498</th>
-      <td>0.23912</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>6.019</td>
-      <td>65.3</td>
-      <td>2.4091</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>396.90</td>
-      <td>12.92</td>
-    </tr>
-    <tr>
-      <th>499</th>
-      <td>0.17783</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>5.569</td>
-      <td>73.5</td>
-      <td>2.3999</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>395.77</td>
-      <td>15.10</td>
-    </tr>
-    <tr>
-      <th>500</th>
-      <td>0.22438</td>
-      <td>0.0</td>
-      <td>9.69</td>
-      <td>0</td>
-      <td>0.585</td>
-      <td>6.027</td>
-      <td>79.7</td>
-      <td>2.4982</td>
-      <td>6</td>
-      <td>391</td>
-      <td>19.2</td>
-      <td>396.90</td>
-      <td>14.33</td>
-    </tr>
-    <tr>
-      <th>501</th>
-      <td>0.06263</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0</td>
-      <td>0.573</td>
-      <td>6.593</td>
-      <td>69.1</td>
-      <td>2.4786</td>
-      <td>1</td>
-      <td>273</td>
-      <td>21.0</td>
-      <td>391.99</td>
-      <td>9.67</td>
-    </tr>
-    <tr>
-      <th>502</th>
-      <td>0.04527</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0</td>
-      <td>0.573</td>
-      <td>6.120</td>
-      <td>76.7</td>
-      <td>2.2875</td>
-      <td>1</td>
-      <td>273</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>9.08</td>
-    </tr>
-    <tr>
-      <th>503</th>
-      <td>0.06076</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0</td>
-      <td>0.573</td>
-      <td>6.976</td>
-      <td>91.0</td>
-      <td>2.1675</td>
-      <td>1</td>
-      <td>273</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>5.64</td>
-    </tr>
-    <tr>
-      <th>504</th>
-      <td>0.10959</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0</td>
-      <td>0.573</td>
-      <td>6.794</td>
-      <td>89.3</td>
-      <td>2.3889</td>
-      <td>1</td>
-      <td>273</td>
-      <td>21.0</td>
-      <td>393.45</td>
-      <td>6.48</td>
-    </tr>
-    <tr>
-      <th>505</th>
-      <td>0.04741</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0</td>
-      <td>0.573</td>
-      <td>6.030</td>
-      <td>80.8</td>
-      <td>2.5050</td>
-      <td>1</td>
-      <td>273</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>7.88</td>
+      <td>8.77</td>
     </tr>
   </tbody>
 </table>
-<p>506 rows × 13 columns</p>
+<p>207 rows × 13 columns</p>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># モデルの宣言</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train2</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[98]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_train2</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[99]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.8050809843193256</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test2</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[103]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.640431820445952</pre>
 </div>
 
 </div>

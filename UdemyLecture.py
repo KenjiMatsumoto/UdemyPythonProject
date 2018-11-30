@@ -226,14 +226,218 @@ model.coef_
 df.head(3)
 
 
-# In[41]:
+# # 外れ値除去（３σ法）
+
+# In[44]:
 
 
-df2 = df.drop(['y'], axis=1)
+col = 'x6'
 
 
-# In[43]:
+# In[45]:
 
 
-df2
+# 平均
+mean = df.mean()
+# mean
+
+
+# In[46]:
+
+
+mean[col]
+
+
+# In[50]:
+
+
+# 標準偏差(standard deviation)
+sigma = df.std()
+# sigma
+
+
+# In[51]:
+
+
+sigma[col]
+
+
+# In[53]:
+
+
+low = mean[col] -3 * sigma[col]
+
+
+# In[54]:
+
+
+high = mean[col] + 3 * sigma[col]
+
+
+# In[59]:
+
+
+df2 = df[(df[col] > low) & (df[col] < high)]
+
+
+# In[60]:
+
+
+len(df)
+
+
+# In[61]:
+
+
+len(df2)
+
+
+# In[62]:
+
+
+# 分布の確認
+sns.distplot(df[col]) # オリジナル
+
+
+# In[63]:
+
+
+sns.distplot(df2[col])
+
+
+# # 外れ値除去を全列に適用
+
+# In[64]:
+
+
+cols = df.columns
+cols
+
+
+# In[79]:
+
+
+import sys
+_df = df
+for col in cols:
+    # 3σ法の上下限値を設定
+    low = mean[col] - 3 * sigma[col]
+    high = mean[col] + 3 * sigma[col]
+    # 条件で絞り込み
+    _df = _df[(_df[col] > low) & (_df[col] < high)]
+
+
+# In[80]:
+
+
+len(df)
+
+
+# In[81]:
+
+
+len(_df)
+
+
+# # 外れ値とスケーリングを考慮した実装
+
+# In[84]:
+
+
+X = _df.iloc[:,:-1]
+y = _df.iloc[:,-1]
+
+
+# In[85]:
+
+
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=1)
+
+
+# In[86]:
+
+
+model = LinearRegression()
+
+
+# In[87]:
+
+
+# 学習
+model.fit(x_train,y_train)
+
+
+# In[88]:
+
+
+# 検証（訓練データ）
+model.score(x_train,y_train)
+
+
+# In[89]:
+
+
+# 検証（検証データ）
+model.score(x_test, y_test)
+
+
+# # スケーリング
+
+# In[90]:
+
+
+from sklearn.preprocessing import StandardScaler
+
+
+# In[91]:
+
+
+# scalerの宣言
+scaler = StandardScaler()
+
+
+# In[92]:
+
+
+# scalerの学習　平均と標準偏差を計算
+scaler.fit(x_train)
+
+
+# In[93]:
+
+
+# scaling
+x_train2 = scaler.transform(x_train)
+x_test2 = scaler.transform(x_test)
+
+
+# In[94]:
+
+
+x_train
+
+
+# In[97]:
+
+
+# モデルの宣言
+model = LinearRegression()
+
+
+# In[98]:
+
+
+model.fit(x_train2,y_train)
+
+
+# In[99]:
+
+
+model.score(x_train2, y_train)
+
+
+# In[103]:
+
+
+model.score(x_test2, y_test)
 
