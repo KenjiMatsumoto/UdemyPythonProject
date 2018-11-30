@@ -223,5 +223,5 @@ model.coef_
 # In[63]:
 
 
-df.head(3)
+df.head()
 
