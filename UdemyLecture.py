@@ -232,7 +232,7 @@ df.head(3)
 df2 = df.drop(['y'], axis=1)
 
 
-# In[42]:
+# In[43]:
 
 
 df2
